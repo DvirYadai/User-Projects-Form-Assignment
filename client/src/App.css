@@ -1,38 +1,101 @@
 .App {
-  text-align: center;
+  width: 600px;
+  height: 900px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.h1-header {
+  margin-left: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 698px;
+  padding: 1rem;
+  overflow-x: scroll;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label {
+  font-size: 20px;
+  margin-right: 1rem;
+}
+
+.label-block {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.form p {
+  font-size: 20px;
+}
+
+.project-details-button {
+  margin-left: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 2rem;
+}
+
+.project-details-div {
+  border: 2px dotted black;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-details-remove {
+  float: right;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 2rem;
+}
+
+.project-details-div div {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  vertical-align: top;
+}
+
+.duration-div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.project-name-span {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.project-name-button {
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+
+.error-div {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.footer-button-div {
+  padding-left: 1rem;
+}
+
+.json-view-p {
+  text-decoration: underline;
+  cursor: pointer;
 }

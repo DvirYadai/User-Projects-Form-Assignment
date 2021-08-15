@@ -1,10 +1,15 @@
 import "./App.css";
+import Form from "./components/Form";
+import { ProjectsProvider } from "./context/ProjectsContext";
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <ProjectsProvider>
+      <div className="App">
+        <h1 className="h1-header">User projects</h1>
+        <Form />
+      </div>
+    </ProjectsProvider>
   );
 }
 
