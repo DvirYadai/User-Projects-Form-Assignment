@@ -1,22 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useProjects } from "../context/ProjectsContext";
 
 const ProjectDetails = ({ item }) => {
-  const { projectsName, removeProjectDetailsCount } = useProjects();
+  const { projectsName, removeProjectDetailsCount, addProjectsDetails } =
+    useProjects();
   const [nameSelectError, setNameSelectError] = useState("");
   const [textareaError, setTextareaError] = useState("");
   const [numberInputError, setNumberInputError] = useState("");
   const [durationSelectError, setDurationSelectError] = useState("");
-  const nameSelectRef = useRef("");
-  const textareaRef = useRef("");
-  const numberInputRef = useRef("");
-  const durationSelectRef = useRef("");
+  const [nameSelect, setNameSelect] = useState("");
 
   const onBlurEvent = (e) => {
     if (e.target.value === "" || e.target.value === "default") {
       switch (e.target.name) {
         case "name-select":
-          setNameSelectError("required");
+          setNameSelectError("Please select a project");
           break;
         case "textarea":
           setTextareaError("required");
@@ -54,21 +52,26 @@ const ProjectDetails = ({ item }) => {
     <div className="project-details-div">
       <form id="project-details-form">
         <button
+          type="button"
           className="project-details-remove"
-          onClick={() => removeProjectDetailsCount(item)}
+          onClick={() => removeProjectDetailsCount(item, nameSelect)}
         >
           x
         </button>
         <div>
           <label>Project: </label>
           <select
-            defaultValue="default"
+            onChange={(e) => {
+              addProjectsDetails(e, "projectName");
+              setNameSelect(e.target.value);
+            }}
+            required
+            defaultValue="default-select-value"
             onBlur={(e) => onBlurEvent(e)}
             name="name-select"
-            ref={nameSelectRef}
           >
-            <option value="default" key="default"></option>
-            {projectsName.map((name, i) => (
+            <option value="default-select-value" key="default"></option>
+            {projectsName.map((name) => (
               <option value={name} key={name}>
                 {name}
               </option>
@@ -83,8 +86,8 @@ const ProjectDetails = ({ item }) => {
             rows="5"
             required
             name="textarea"
-            ref={textareaRef}
             onBlur={(e) => onBlurEvent(e)}
+            onChange={(e) => addProjectsDetails(e, "details", nameSelect)}
           ></textarea>
           <div className="error-div">{textareaError}</div>
         </div>
@@ -96,21 +99,25 @@ const ProjectDetails = ({ item }) => {
             <input
               type="number"
               required
-              name="number-input"
-              ref={numberInputRef}
+              name="durationValue"
               onBlur={(e) => onBlurEvent(e)}
+              onChange={(e) =>
+                addProjectsDetails(e, "durationValue", nameSelect)
+              }
             />
             <div className="error-div">{numberInputError}</div>
           </div>
           <div>
             <select
-              defaultValue="default"
+              defaultValue="default-select-value"
               required
-              name="duration-select"
-              ref={durationSelectRef}
+              name="durationSelect"
               onBlur={(e) => onBlurEvent(e)}
+              onChange={(e) =>
+                addProjectsDetails(e, "durationSelect", nameSelect)
+              }
             >
-              <option value="default" key="default"></option>
+              <option value="default-select-value" key="default"></option>
               <option value="days" key="days">
                 Days
               </option>

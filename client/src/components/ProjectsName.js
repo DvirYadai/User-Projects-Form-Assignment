@@ -12,12 +12,14 @@ const ProjectsName = () => {
       {projectsName.map((name, i) => (
         <ProjectsNameLabel key={i} name={name} />
       ))}
-      <input
-        type="text"
-        placeholder="Enter your project name"
-        onKeyPress={(e) => addProjectName(e, nameRef.current.value)}
-        ref={nameRef}
-      />
+      <input type="text" placeholder="Enter your project name" ref={nameRef} />
+      <button
+        type="button"
+        className="add-project-name-button"
+        onClick={() => addProjectName(nameRef.current.value)}
+      >
+        ➕
+      </button>
     </div>
   );
 };

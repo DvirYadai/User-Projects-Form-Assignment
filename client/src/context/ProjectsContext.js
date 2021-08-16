@@ -10,32 +10,43 @@ export const ProjectsProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [projectsName, setProjectsName] = useState([]);
   const [projectDetailsCount, setProjectDetailsCount] = useState([]);
-  const [projectsDetails, setProjectsDetails] = useState([]);
-  const [jsonView, setJsonView] = useState(false);
+  const [projectsDetails, setProjectsDetails] = useState({});
 
-  const addProjectsDetails = (
-    nameSelectRef,
-    textareaRef,
-    numberInputRef,
-    durationSelectRef
-  ) => {
-    // setProjectsDetails((prev) => [...prev]);
-    setJsonView(!jsonView);
+  const addProjectsDetails = (e, detailName, projectName) => {
+    const value = e.target.value;
+    if (detailName === "projectName") {
+      setProjectsDetails((prev) => ({
+        ...prev,
+        [value]: { details: "", durationValue: "", durationSelect: "" },
+      }));
+    } else if (detailName === "details") {
+      setProjectsDetails((prev) => ({
+        ...prev,
+        [projectName]: { ...prev[projectName], details: value },
+      }));
+    } else if (detailName === "durationValue") {
+      setProjectsDetails((prev) => ({
+        ...prev,
+        [projectName]: { ...prev[projectName], durationValue: value },
+      }));
+    } else if (detailName === "durationSelect") {
+      setProjectsDetails((prev) => ({
+        ...prev,
+        [projectName]: { ...prev[projectName], durationSelect: value },
+      }));
+    }
   };
 
   const updateUserName = (name) => {
     setUserName(name);
   };
 
-  const addProjectName = (e, name) => {
-    if (e.charCode === 13) {
-      if (name === "") {
-        alert("Project name cant be empty");
-        return;
-      }
-      setProjectsName((prev) => [...prev, name]);
-      e.target.value = "";
+  const addProjectName = (name) => {
+    if (name === "") {
+      alert("Project name cant be empty");
+      return;
     }
+    setProjectsName((prev) => [...prev, name]);
   };
 
   const removeProjectName = (e) => {
@@ -45,7 +56,13 @@ export const ProjectsProvider = ({ children }) => {
     forms.forEach((form) => {
       if (form[1].options.selectedIndex === projectNameIndex + 1) form.reset();
     });
+    if (projectsDetails.hasOwnProperty(projectName)) {
+      const tempObj = Object.assign({}, projectsDetails);
+      delete tempObj[projectName];
+      setProjectsDetails(tempObj);
+    }
     setProjectsName((prev) => [...prev].filter((name) => name !== projectName));
+    alert("Project name deleted successfully");
   };
 
   const addProjectDetailsCount = () => {
@@ -59,10 +76,18 @@ export const ProjectsProvider = ({ children }) => {
     }
   };
 
-  const removeProjectDetailsCount = (item) => {
+  const removeProjectDetailsCount = (item, projectName) => {
     setProjectDetailsCount((prev) =>
       [...prev].filter((value) => value !== item)
     );
+    if (
+      projectsDetails.hasOwnProperty(projectName) &&
+      projectName !== "default-select-value"
+    ) {
+      const tempObj = Object.assign({}, projectsDetails);
+      delete tempObj[projectName];
+      setProjectsDetails(tempObj);
+    }
   };
 
   const value = {
@@ -76,7 +101,6 @@ export const ProjectsProvider = ({ children }) => {
     removeProjectDetailsCount,
     projectsDetails,
     addProjectsDetails,
-    jsonView,
   };
 
   return (

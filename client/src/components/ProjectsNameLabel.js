@@ -7,6 +7,7 @@ const ProjectsNameLabel = ({ name }) => {
     <span className="project-name-span">
       {name}
       <button
+        type="button"
         className="project-name-button"
         onClick={(e) => removeProjectName(e)}
       >
