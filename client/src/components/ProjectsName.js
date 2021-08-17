@@ -12,7 +12,12 @@ const ProjectsName = () => {
       {projectsName.map((name, i) => (
         <ProjectsNameLabel key={i} name={name} />
       ))}
-      <input type="text" placeholder="Enter your project name" ref={nameRef} />
+      <input
+        type="text"
+        placeholder="Enter your project name"
+        ref={nameRef}
+        name="projectNameInput"
+      />
       <button
         type="button"
         className="add-project-name-button"
