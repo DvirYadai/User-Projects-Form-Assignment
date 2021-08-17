@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/User-Projects-Form-Assignment/static/css/main.b5de2762.chunk.css",
+    "main.js": "/User-Projects-Form-Assignment/static/js/main.551af708.chunk.js",
+    "main.js.map": "/User-Projects-Form-Assignment/static/js/main.551af708.chunk.js.map",
+    "runtime-main.js": "/User-Projects-Form-Assignment/static/js/runtime-main.03f13037.js",
+    "runtime-main.js.map": "/User-Projects-Form-Assignment/static/js/runtime-main.03f13037.js.map",
+    "static/js/2.367757e7.chunk.js": "/User-Projects-Form-Assignment/static/js/2.367757e7.chunk.js",
+    "static/js/2.367757e7.chunk.js.map": "/User-Projects-Form-Assignment/static/js/2.367757e7.chunk.js.map",
+    "static/js/3.b70f453b.chunk.js": "/User-Projects-Form-Assignment/static/js/3.b70f453b.chunk.js",
+    "static/js/3.b70f453b.chunk.js.map": "/User-Projects-Form-Assignment/static/js/3.b70f453b.chunk.js.map",
+    "index.html": "/User-Projects-Form-Assignment/index.html",
+    "static/css/main.b5de2762.chunk.css.map": "/User-Projects-Form-Assignment/static/css/main.b5de2762.chunk.css.map",
+    "static/js/2.367757e7.chunk.js.LICENSE.txt": "/User-Projects-Form-Assignment/static/js/2.367757e7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.03f13037.js",
+    "static/js/2.367757e7.chunk.js",
+    "static/css/main.b5de2762.chunk.css",
+    "static/js/main.551af708.chunk.js"
+  ]
+}
