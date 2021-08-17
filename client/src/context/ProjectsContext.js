@@ -20,16 +20,31 @@ export const ProjectsProvider = ({ children }) => {
         [value]: { details: "", durationValue: "", durationSelect: "" },
       }));
     } else if (detailName === "details") {
+      if (projectName === "") {
+        alert("Please select project name first");
+        e.target.value = "";
+        return;
+      }
       setProjectsDetails((prev) => ({
         ...prev,
         [projectName]: { ...prev[projectName], details: value },
       }));
     } else if (detailName === "durationValue") {
+      if (projectName === "") {
+        alert("Please select project name first");
+        e.target.value = "";
+        return;
+      }
       setProjectsDetails((prev) => ({
         ...prev,
         [projectName]: { ...prev[projectName], durationValue: value },
       }));
     } else if (detailName === "durationSelect") {
+      if (projectName === "") {
+        alert("Please select project name first");
+        e.target.value = "";
+        return;
+      }
       setProjectsDetails((prev) => ({
         ...prev,
         [projectName]: { ...prev[projectName], durationSelect: value },

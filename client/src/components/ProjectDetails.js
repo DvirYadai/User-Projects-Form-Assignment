@@ -11,7 +11,7 @@ const ProjectDetails = ({ item }) => {
   const [nameSelect, setNameSelect] = useState("");
 
   const onBlurEvent = (e) => {
-    if (e.target.value === "" || e.target.value === "default") {
+    if (e.target.value === "" || e.target.value === "default-select-value") {
       switch (e.target.name) {
         case "name-select":
           setNameSelectError("Please select a project");
@@ -19,10 +19,10 @@ const ProjectDetails = ({ item }) => {
         case "textarea":
           setTextareaError("required");
           break;
-        case "number-input":
+        case "durationValue":
           setNumberInputError("required");
           break;
-        case "duration-select":
+        case "durationSelect":
           setDurationSelectError("required");
           break;
         default:
@@ -36,10 +36,10 @@ const ProjectDetails = ({ item }) => {
         case "textarea":
           setTextareaError("");
           break;
-        case "number-input":
+        case "durationValue":
           setNumberInputError("");
           break;
-        case "duration-select":
+        case "durationSelect":
           setDurationSelectError("");
           break;
         default:

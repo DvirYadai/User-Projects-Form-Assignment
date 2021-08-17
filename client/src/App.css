@@ -109,3 +109,8 @@ textarea {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+}
