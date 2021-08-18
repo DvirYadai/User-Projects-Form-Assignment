@@ -76,7 +76,7 @@ const Form = () => {
         <div className="form" style={{ display: jsonView ? "none" : "block" }}>
           <label className="label-block">Name: </label>
           <input
-            className="name-input"
+            className="name-inpu"
             type="text"
             required
             placeholder="Enter your name"
