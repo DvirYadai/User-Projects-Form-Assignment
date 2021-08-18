@@ -20,8 +20,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install and start
-        run: npm install && npm start
+      - name: Install dependencies
+        run: npm i
+
+      - name: start client
+        run: npm start & npx wait-on http://localhost:3000
 
       - name: run test
         run: npm run test
