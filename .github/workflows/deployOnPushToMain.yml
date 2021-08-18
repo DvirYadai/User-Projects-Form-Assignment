@@ -20,8 +20,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: git config
-        run: git config --global user.email "dvir195@gmail.com" && git config --global user.name "DvirYadai"
-
-      - name: install dependencies and deploy
-        run: npm i && npm run deploy
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build
